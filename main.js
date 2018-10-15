@@ -38,19 +38,21 @@ fetch(`${apiUrl}users`).then(response => {
 
 axios.get(`${apiUrl}users`)
     .then(function (response) {
-        let d, s = '';
-        $('.users-box').append(`<ul class="list-users container"></ul>`);
-        $('.list-users').append(`<li>
-                                        <div>id</div>
-                                        <div><img src="${d['avatar_url']}" alt="${d['login']}"></div>
-                                    </li>`);
+        let d;
+        console.log('axios :', response.data);
+        $('.users-box').append(`<ul class="list-users container">
+                                              <li>
+                                                 <div class="label user-id">id</div>
+                                                 <div class="label user-img">avatar</div>
+                                              </li>
+                                 </ul>`);
         for (d of response.data) {
             $('.list-users').append(`<li>
                                         <div class="user-id">${d['id']}</div>
                                         <div class="user-img"><img src="${d['avatar_url']}" alt="${d['login']}"></div>
                                     </li>`);
         }
-        console.log('axios :', response.data);
+
     })
     .catch(function (error) {
         console.error(error);

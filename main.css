@@ -16,9 +16,15 @@ body{
 .list-users{
     list-style: none;
 }
-.users-img{
+.list-users li{
+    display: flex;
+    /*justify-content: flex-end;*/
+    align-items: center;
+}
+.user-img{
+    margin: 20px ;
     width: 200px;
 }
-.users-img img{
+.user-img img{
     width: 100%;
 }

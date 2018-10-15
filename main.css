@@ -1,0 +1,24 @@
+:root{
+    --b-color:#f1f5f8;
+    --t-color:#626262;
+}
+
+
+body{
+    background: var(--b-color);
+    color:var(--t-color) ;
+    font-family: 'Mali', cursive;
+    font-size: 18px;
+}
+.title{
+    text-align: center;
+}
+.list-users{
+    list-style: none;
+}
+.users-img{
+    width: 200px;
+}
+.users-img img{
+    width: 100%;
+}

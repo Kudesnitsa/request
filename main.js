@@ -1,6 +1,6 @@
 const apiUrl = "https://api.github.com/";
 let xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
+xhttp.onreadystatechange =  () => {
     if (this.readyState == 4 && this.status == 200) {
         let data = JSON.parse(this.responseText);
         console.log('Ajax:', data);
@@ -8,34 +8,25 @@ xhttp.onreadystatechange = function () {
 };
 xhttp.open("GET", `${apiUrl}users`, true);
 xhttp.send();
-$.get(`${apiUrl}users`, function (data) {
-}).done(function (data) {
-    console.log('JQuery :', data);
-}).fail(function (error) {
-    console.error(error);
-});
+$.get(`${apiUrl}users`,  data => {})
+    .done(data => console.log('JQuery :', data))
+    .fail(error => console.error('JQuery :', error));
 
 $.ajax({
-    url: `${apiUrl}users`,
-    method: "GET"
-}).done(function (data) {
-    console.log('JQuery.ajax :', data);
-}).fail(function (error) {
-    console.error(`massage ${error.responseText['message']}`);
-});
+           url: `${apiUrl}users`,
+           method: "GET"
+      })
+    .done( data => console.log('JQuery.ajax :', data))
+    .fail( error => console.error(`massage ${error.responseText['message']}`));
 
-fetch(`${apiUrl}users`).then(response => {
-    return response.json();
-}).then(data => {
-    console.log('fetch :', data);
-}).catch(error => {
-    console.error(error);
-});
+fetch(`${apiUrl}users`).then(response =>  response.json())
+    .then(data => console.log('fetch :', data))
+    .catch(error => console.error('fetch :', error));
 
 
 
 axios.get(`${apiUrl}users`)
-    .then(function (response) {
+    .then(response => {
         let d;
         console.log('axios :', response.data);
         $('.users-box').append(`<ul class="list-users container">
@@ -52,6 +43,4 @@ axios.get(`${apiUrl}users`)
         }
 
     })
-    .catch(function (error) {
-        console.error(error);
-    });
+    .catch( error => console.error(error));
